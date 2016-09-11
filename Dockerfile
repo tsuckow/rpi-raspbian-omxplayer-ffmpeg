@@ -9,4 +9,8 @@ WORKDIR /usr/src/omxplayer
 RUN ./prepare-native-raspbian.sh
 
 RUN make ffmpeg -j3
+RUN mv ffmpeg_compiled ../
+WORKDIR /usr/src
+RUN rm -rf /usr/src/omxplayer
+
 RUN [ "cross-build-end" ]
